@@ -5,6 +5,11 @@
 public class LongestCommonSubsequence {
 
 
+    /**
+     * 求两个字符串的最长公共子串的长度。
+     * 该算法的空间、时间复杂度均为 O(n^2)，经过优化后，空间复杂度可为 O(n)。
+     * @return length
+     * */
     public int longestCommonSubsequence(String s1, String s2) {
         if (s1 == null || s1.length() == 0 || s2 == null || s2.length() == 0)
             return 0;
