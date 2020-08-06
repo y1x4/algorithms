@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class SortAlgorithms {
 
+    /** 4.希尔排序 */
     public static void shellSort(int[] arr) {
         if (arr == null || arr.length <= 1)
             return;
@@ -27,8 +28,7 @@ public class SortAlgorithms {
         }
     }
 
-
-
+    
 
     private void swap(int[] arr, int i, int j) {
         int temp = arr[i];
@@ -38,7 +38,8 @@ public class SortAlgorithms {
 
 
 
-    public int[] sort(int[] sourceArray) {
+    /** 7.堆排序（最大堆） */
+    public int[] heapSort(int[] sourceArray) {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
@@ -78,6 +79,8 @@ public class SortAlgorithms {
         }
     }
 
+
+    /** 8.计数排序 */
     public static int[] countingSort(int[] sourceArr, int maxValue) {
         int[] buckets = new int[maxValue + 1];
         for (int value : sourceArr) {
@@ -95,7 +98,8 @@ public class SortAlgorithms {
     }
 
 
-    // 基数排序
+
+    /** 10.基数排序 */
     public static int[] radixSort(int[] sourceArray, int radix, int maxDigit) {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
