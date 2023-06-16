@@ -5,8 +5,9 @@ public class SortAlgorithms {
 
     /** 4.希尔排序 */
     public static void shellSort(int[] arr) {
-        if (arr == null || arr.length <= 1)
+        if (arr == null || arr.length <= 1) {
             return;
+        }
 
         int n = arr.length;
         int gap = 1;
@@ -28,7 +29,7 @@ public class SortAlgorithms {
         }
     }
 
-    
+
 
     private void swap(int[] arr, int i, int j) {
         int temp = arr[i];
