@@ -68,8 +68,7 @@ class Proxy1 {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 CalculatorImpl calculatorImpl = new CalculatorImpl();
-                Object result = method.invoke(calculatorImpl, args);
-                return result;
+                return method.invoke(calculatorImpl, args);
             }
         });
         calculatorProxyImpl.add(1, 2);
