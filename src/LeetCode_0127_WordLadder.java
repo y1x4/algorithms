@@ -111,6 +111,7 @@ public class LeetCode_0127_WordLadder {
 
     public static void main(String[] args) {
         LeetCode_0127_WordLadder obj = new LeetCode_0127_WordLadder();
+        System.out.println(obj.ladderLength2("hit", "cog", List.of("hot","dot","tog","cog")));  // 0
         System.out.println(obj.ladderLength2("hit", "cog", List.of("hot", "dot", "dog", "lot", "log", "cog")));  // 5
     }
 }
