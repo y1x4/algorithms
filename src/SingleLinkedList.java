@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author yixu
@@ -14,6 +15,21 @@ public class SingleLinkedList {
         ListNode(int x) {
             val = x;
         }
+        ListNode(int x, ListNode next) {
+            this.val = x;
+            this.next = next;
+        }
+    }
+
+    AtomicReference<ListNode> head = new AtomicReference<>();
+
+    public void insert(int val) {
+        ListNode newHead = new ListNode(val);
+        ListNode oldHead;
+        do {
+            oldHead = head.get();
+            newHead.next = oldHead;
+        } while (!head.compareAndSet(oldHead, newHead));
     }
 
     /**

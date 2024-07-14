@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class LeetCode_0010_RegularExpressionMatching {
 
@@ -35,7 +38,51 @@ public class LeetCode_0010_RegularExpressionMatching {
         return dp[m][n];
     }
 
+
+    public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+        // set1存储数组1里的数
+        HashSet<Integer> set1 = new HashSet<>();
+        for(int num : nums1) {
+            set1.add(num);
+        }
+
+        // set2存储数组2里的数
+        HashSet<Integer> set2 = new HashSet<>();
+        for(int num : nums2) {
+            set2.add(num);
+        }
+
+        // 遍历数组2里的数，从set1移除存在于数组2里的数
+        for(int num : nums2) {
+            if (set1.contains(num)) {
+                set1.remove(num);
+            }
+        }
+
+        // 遍历数组1里的数，从set2移除存在于数组1里的数
+        for(int num : nums1) {
+            if(set2.contains(num)) {
+                set2.remove(num);
+            }
+        }
+
+        // 组装结果到列表中，返回
+        List<List<Integer>> res = new ArrayList<>();
+        res.add(new ArrayList<>(set1));
+        res.add(new ArrayList<>(set2));
+        return res;
+    }
+
+
     public static void main(String[] args) {
         LeetCode_0010_RegularExpressionMatching obj = new LeetCode_0010_RegularExpressionMatching();
+
+        StringBuilder sb = new StringBuilder("insert into user_1 values ");
+        String format = "(%d,%d,%d,'%d@qq.com'), ";
+        for (int i = 5; i <= 500; i+=5) {
+            sb.append(String.format(format, i, i, i, i));
+        }
+        sb.setCharAt(sb.length() - 2, ';');
+        System.out.println(sb);
     }
 }

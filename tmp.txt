@@ -4,3 +4,120 @@ Access Code: r70Vl@jp
 
 
 hWang1006.com
+
+
+
+
+
+
+
+微服务应用拆分->RPC->封装（编码、寻址、发送、解码、调用、返回）的过程->通过动态代理模式，在执行该方法的前后对数据进行封装和解码等
+请求消息结构：接口名称、方法名、参数类型&参数值、超时时间 + requestID（标识唯一请求id）
+返回消息结构：状态code + 返回值、requestID
+
+
+
+
+
+
+面向京东商家投放站外媒体广告的平台，比如头腾百快
+创编
+同步
+    资源隔离（MQ），媒体/操作/类型（UNDO/RETRY/DEAD）
+列表
+工具：批量创建、评论管理、诊断
+下线恢复功能
+
+特点
+    多平台多业务线多场景：复用、维护、资源隔离
+    流量聚集（上班时间、节日大促期间）
+
+
+
+基于调用网关修改预算接口的性能监控和广告主日常修改预算的次数，不管改大改小都直接同步调用网关接口、而不是改大时同步（可能失败）改小时同步
+
+
+
+
+广告域：投放域（计划、单元、创意、站外同步、站内传输）、支撑域（素材域、审核域、人群域、广告位域）、通用域（账户域）
+
+解决软件设计的复杂性，分而治之，保持内核的稳定性和扩展性，领域模型是业务的抽象
+
+提炼整体业务流程
+战略设计：领域、子域、支撑域、通用域、限界上下文
+    限界上下文，包含领域模型、业务规则、相关的领域服务和持久化逻辑
+战术设计：实体、值对象、聚合、聚合根、资源库、工厂、领域服务、领域事件
+编码：分层实现
+
+
+马尔科夫链通过定义状态、转移概率和初始状态，模拟了一个系统如何随着时间随机变化的过程，适合处理序列数据问题，如天气预报、文本生成、语音识别、市场趋势预测等
+
+
+Netty 实现 零拷贝 的4种机制
+    ByteBuf：切片共用（类似于Java subList），组合缓冲区（减少内存复制）
+    FileRegion：实现操作系统层面的零拷贝，数据直接从磁盘传输到网络，sendfile、sendfile + gather DMA
+    直接内存：减少堆内存和堆外内存之间的数据复制
+内存池：PooledByteBufAllocator（一组预先分配的缓冲区）、ByteBuf对象重用、管理多个不同大小的内存池
+
+
+
+
+
+
+
+前端
+    Web：HTML/CSS/JavaScript+React
+    APP：
+        iOS：object c 、 Swift
+        Android：Java
+
+算法都很重要，然后前端考察三件套八股文、后端考察解决方案
+前端注重项目（做成的东西）
+后端注重经历（解决的问题，代表了解问题相关的知识）
+
+
+技术认知
+    对架构设计的认知：立足于点，连接成线、扩散成面，不是仅仅停留在技术解决方案上
+    对分析问题的认知：根据现阶段的主要矛盾来分析问题
+    对能力边界的认知：扩大自己能够驾驭系统的边界，因为只有这样才能遇到之前没经历过的问题层次
+
+系统设计思路
+    复杂来源、解决方案、评估标准、技术实现
+
+分布式
+    CAP
+    PACELC：产生网络分区时在一致性和可用性之间权衡，否则在延迟和一致性之间权衡
+    互联网是数据一致性和系统可用性的权衡——BASE理论，如电商场景中的缓存、降级、异步削峰等
+
+海量数据存储：数据分片、复制、一致性
+    哈希取模
+    一致性哈希
+    热点问题（虚拟节点）
+    一致性共识算法：Raft、ZAB、Gossip（最终一致性）
+
+
+分布式事务
+
+分布式锁
+
+中间件：RPC、MQ
+
+
+
+
+建议：项目，可以说得更详细一些，比如架构、难点、怎么解决的
+
+
+
+
+我本科学的工科，打下了坚实的数理基础。研究生学的计算机技术专业，并且毕业后在京东商城从事广告平台的后端开发工作，为百万商家提供高效、稳定的营销广告投放服务。
+现在为了我的未来职业发展，结合老板对我的建议，我想申请 MBA 进行相关学习和眼界的拓展。请结合以下学校的项目资料为我写一份简练、重点突出的英语格式的目的陈述：
+
+Master of Business Administration. Focused, values-driven, and accelerated, this program for adults holding a bachelor degree is defined by an intense focus on business strategy, managerial, decision making, and market development. Our program is global in both student population and perspective providing exceptional networking opportunities for candidates looking to bring Western business knowledge to growing markets. In our program, you will learn the critical decision-making skills that corporate managers use in negotiations, communications, marketing, corporate strategy, and ethics.
+Courses: Executive Communication, Corporate Finance, Managerial Accounting for MBA, Strategic Marketing Management, Micro & Macro Economic Decision Making, Statistics & Quantitative Methods, Project Management, New Product Development & Innovation Strategies, Lean Six Sigma, Business Ethics.
+
+
+
+
+
+

@@ -1,11 +1,35 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ArrayAlgorithms {
 
+    public String removeKdigits(String num, int k) {
+        Deque<Character> deque = new LinkedList<>();
+        for (int i = 0; i < num.length(); i++) {
+            char digit = num.charAt(i);
+            while (!deque.isEmpty() && k > 0 && deque.peekLast() > digit) {
+                deque.pollLast();
+                k--;
+            }
+            deque.offerLast(digit);
+        }
+
+        for (int i = 0; i < k; i++) {
+            deque.pollLast();
+        }
+
+        StringBuilder sb = new StringBuilder();
+        boolean leadingZero = true;
+        while (!deque.isEmpty()) {
+            char digit = deque.peekFirst();
+            if (leadingZero && digit == '0') {
+                deque.pollFirst();
+                continue;
+            }
+            leadingZero = false;
+            sb.append(deque.pollFirst());
+        }
+        return sb.length() == 0 ? "0" : sb.toString();
+    }
     /**
      * 3种解法：
      * 1.暴力解法，Arrays.sort()，JDK中使用快速排序，时间复杂度O(NlogN)，空间复杂度O(logN)；
